@@ -1,0 +1,26 @@
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title, :class => "form-label" %>
+    <%= form.text_field :title, :class => "form-control" %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <span class="invalid-feedback d-block text-end"><%= message %></span>
+    <% end %>
+  </div>
+
+  <div class="mt-2">
+    <%= form.label :body, :class => "form-label" %>
+    <%= form.text_area :body, :class => "form-control" %>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <span class="invalid-feedback d-block text-end"><%= message %></span>
+    <% end %>
+  </div>
+
+  <div class="mt-2">
+    <%= form.label :status, :class => "form-label" %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public', class: "form-select" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Create Article", class: "btn btn-primary" %>
+  </div>
+<% end %>
