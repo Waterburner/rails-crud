@@ -1,11 +1,13 @@
 <% unless comment.archived? %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
+  <div class="mb-2">
+    <p class="mb-0">
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
+    <p class="mb-0">
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+  </div>
 
 <% end %>
