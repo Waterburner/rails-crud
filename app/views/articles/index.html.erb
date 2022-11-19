@@ -5,7 +5,6 @@
       <th scope="col">#</th>
       <th scope="col">Title</th>
       <th scope="col">Action</th>
-      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -17,9 +16,12 @@
           <td class="w-25">
             <%= link_to "View", article_path(article), class: "btn btn-primary btn-sm px-3" %>
             <%= link_to "Edit", edit_article_path(article), class: "btn btn-success btn-sm px-3" %>
-          </td>
-          <td class="w-25">
-            <%= button_to "Destroy", article, method: :delete, class: "btn btn-danger btn-sm px-3" %>
+            <%= link_to "Destroy", article, 
+              data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              }, 
+              class: "btn btn-danger btn-sm px-3" %>
           </td>
         </tr>
       <% end %>
