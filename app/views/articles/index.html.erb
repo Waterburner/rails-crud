@@ -1,4 +1,11 @@
 <div><p>Our blog has <%= Article.public_count %> articles and counting!</p></div>
+
+<select class="form-select my-4" id="article_status" style="width: fit-content;">
+  <option value="public">Public</option>
+  <option value="private">Private</option>
+  <option value="archived">Archived</option>
+</select>
+
 <table class="table">
   <thead>
     <tr>
@@ -8,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @articles.each.with_index(1) do |article, index| %>
+    <% @articles.each.with_index(0) do |article, index| %>
       <% unless article.archived? %>
         <tr class="align-middle">
           <th scope="row"><%= index %></th>
